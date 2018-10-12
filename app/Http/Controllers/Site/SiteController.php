@@ -13,41 +13,33 @@ class SiteController extends Controller
 
     protected $model;
     protected $totalpages = 5;
-    protected $category;
-
-    public function __construct()
-    {
-        $this->category = Category::all();
-    }
 
     public function index()
     {
-        $category = $this->category;
         $datas = Post::where('status','A')->paginate($this->totalpages);
-        return view ("site.index", compact('datas','category'));
+        return view ("site.index", compact('datas'));
     }
 
-    public function categoria()
-    {
-        $category = $this->category;
-        return view ('site.pages.categoria', compact('category'));
-    }
+    // public function categoria()
+    // {
+    //     return view ('site.pages.categoria');
+    // }
 
     public function post($id)
     {
-        $category = $this->category;
         $datas = Post::where('id',$id)->with('user','category')->get();
-        return view ('site.pages.post', compact('category','datas'));
+        return view ('site.pages.post', compact('datas'));
     }    
 
-    public function posts($id)
+    public function category($id)
     {
-        $category = $this->category;
+
         $datas = Post::where('category_id',$id)->where('status','A')->with('category')->paginate($this->totalpages);
 
-        $title = $datas[0]->category->name;
+        $cate = Category::select('name')->where('id',$id)->get();
+        $title = $cate[0]->name;
 
-        return view ('site.pages.posts', compact('category','datas','title'));
+        return view ('site.pages.category', compact('datas','title'));
     }
 
     // public function showPost($id)
@@ -59,13 +51,11 @@ class SiteController extends Controller
 
     public function empresa()
     {
-        $category = $this->category;
-        return view ('site.pages.empresa', compact('category'));
+        return view ('site.pages.empresa');
     }
 
     public function contato()
     {
-        $category = $this->category;
-        return view ('site.pages.contato', compact('category'));
+        return view ('site.pages.contato');
     }
 }

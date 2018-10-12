@@ -22,7 +22,7 @@ $this->post('password/reset', 'Auth\ResetPasswordController@reset');
 Route::get('/contato', 'Site\SiteController@contato');
 Route::get('/empresa', 'Site\SiteController@empresa');
 Route::any('/post/{id}', 'Site\SiteController@post');
-Route::get('/posts/{id}', 'Site\SiteController@posts');
+Route::get('/category/{id}', 'Site\SiteController@category');
 Route::get('/categoria', 'Site\SiteController@categoria');
 Route::get('/', 'Site\SiteController@index');
 

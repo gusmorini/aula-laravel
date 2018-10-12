@@ -21,7 +21,9 @@
 <section class="menu">
 	
 	<div class="logo">
-    <img src="{{url('admin/imgs/icone-alfa.png')}}" alt="webdevalfa" class="logo-painel">
+    	<a href="{{url('/')}}" title="Home">
+    	<img src="{{url('admin/imgs/icone-alfa.png')}}" alt="webdevalfa" class="logo-painel">
+    	</a>
 	</div>
 
 	<div class="list-menu">
@@ -69,7 +71,10 @@
 		<div class="dropdown user-dash">
 		  <div class="dropdown-toggle" id="dropDownCuston" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
 			<img src="{{url('imgs/no-image.png')}}" alt="Jaime Vendrame" class="user-dashboard img-circle">
-			<p class="user-name">{{Auth::User()->name}}</p>
+			<p class="user-name">
+				{{Auth::User()->name}} 	<br>
+				{{Auth::User()->email}}
+			</p>
 		    <span class="caret"></span>
 		  </div>
 		  <ul class="dropdown-menu dp-menu" aria-labelledby="dropDownCuston">

@@ -4,7 +4,7 @@
 <section class="content">
     <div class="col-md-8">
 
-        <h2>{{$title}}</h2>
+        <h2 class="title">{{$title}}</h2>
         
         @forelse($datas as $key)
 
@@ -23,7 +23,9 @@
             </div>
         </article>
         @empty
-            <h3>nenhum post cadastrado...</h3>
+            <div class="alert alert-danger" role="alert">
+              Nenhum post encontrado...
+            </div>
         @endforelse
 
         {{-- {{$datas->links()}} --}}

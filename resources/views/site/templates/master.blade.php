@@ -1,3 +1,5 @@
+<?php use App\Models\Category;  ?>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -61,8 +63,9 @@
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categorias <span class="caret"></span></a>
                 <ul class="dropdown-menu">
-              		@forelse($category as $key)
-                  	<li><a href="{{ url('posts/'.$key->id) }}">{{ $key->name }}</a></li>
+
+              		@forelse(Category::all() as $key)
+                  	<li><a href="{{ url('category/'.$key->id) }}">{{ $key->name }}</a></li>
                   	@empty
                   		<li>...</li>
                   	@endforelse
@@ -71,6 +74,7 @@
 
               <li><a href="{{url('empresa')}}">Empresa</a></li>
               <li><a href="{{url('contato')}}">Contato</a></li>
+              <li><a href="{{url('login')}}">Painel</a></li>
               
             </ul>
 
