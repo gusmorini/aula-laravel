@@ -1,7 +1,29 @@
-@extends('layouts.app')
+@extends('login.master')
 
-@section('content')
-<div class="container">
+@section('conteudo')
+
+<section class="login">
+    <div class="image-login">
+        <img src="imgs/logo-webdevalfa.png" alt="WebDevAlfa" class="img-login">
+    </div>
+
+    <form class="form-login" method="POST" action="{{ route('login') }}">
+
+         {{ csrf_field() }}
+        
+        <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
+        <input id="password" type="password" class="form-control" name="password" required>
+
+        <button class="btn-login">Acessar</button>
+
+        <!-- <a href="#" class="rel-pass">Recuperar Senha?</a> -->
+        <a href="{{ route('register') }}" class="rel-pass">Register</a>
+    </form>
+</section>
+
+@endsection
+
+<!-- <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
@@ -66,4 +88,4 @@
         </div>
     </div>
 </div>
-@endsection
+ -->
