@@ -34,11 +34,11 @@ class UserController extends StandardController
         $dataForm = $request->get('pesquisa');
 
         //Filtra os usuários
-        $users = $this->model
+        $datas = $this->model
             ->where('name', 'LIKE', "%{$dataForm}%")
             ->orWhere('email', 'LIKE', "%{$dataForm}%")
             ->paginate($this->totalpages);
 
-        return view("painel.modulos.usuario.index", compact('users', 'dataForm'));
+        return view("painel.modulos.usuario.index", compact('datas', 'dataForm'));
     }
 }

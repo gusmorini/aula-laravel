@@ -27,7 +27,7 @@
 	<header class="top">
 		<div class="container">
 			<div class="logo col-md-6">
-				<a href="?pg=home">
+				<a href="/">
 					<img src="{{url('imgs/logo-webdevalfa.png')}}" alt="WebDevAlfa" class="logo">
 				</a>
 			</div>

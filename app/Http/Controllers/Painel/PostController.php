@@ -62,6 +62,7 @@ class PostController extends StandardController
         //Filtra os usuários
         $datas = $this->model
             ->where('title', 'LIKE', "%{$dataForm}%")
+            ->orWhere('description', 'LIKE', "%{$dataForm}%")
             ->paginate($this->totalpages);
         return view("{$this->views}.index", compact('datas', 'dataForm'));
     }
